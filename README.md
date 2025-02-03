@@ -1,4 +1,4 @@
-![alt text](Happy_Docs_Pictures/Happy_Docs_Logo.png)
+![alt text](Edamam_Python_Pictures/Edamam_Logo.png)
 
 # Welcome to the Edamam recipe finder!
 ## Don't let picking your next meal waste your time let Edamam do the hard work for you.
@@ -9,7 +9,7 @@
 
 ## Introduction
 
-<img src="Happy_Docs_Pictures/doc_image.webp" alt="Doctor GIF" align="right" width="170" height="150" style="margin-left: 20px;">
+<img src="Edamam_Python_Pictures/Choices.webp" alt="Choices GIF" align="right" width="170" height="150" style="margin-left: 20px;">
 
 Welcome to Edamam recipe finder, taking the hassle out of finding the perfect recipe for any occassion.
 Need to exclude certain things? We got you covered limit your search specifically to your dietary requirements.
@@ -20,11 +20,11 @@ End of the month and need to figure out a meal with what you have in the house? 
 ---
 <a name="main-features"></a>
 ### Main Features:
+<img src="Edamam_Python_Pictures/ingredients.webp" alt="ingredients GIF" align="right" width="300" height="300" style="margin-left: 30px;">
 
 ⭐Recipe finder API
 
 ⭐The available input options:
-<img src="Happy_Docs_Pictures/robo.webp" alt="robo GIF" align="right" width="300" height="350" style="margin-left: 30px;">
 
 ⭐Ingredients
 
@@ -53,7 +53,7 @@ My Edamam project recieved 🩷**Best in Class**🩷 an achievement I am very pr
 <a name="Database Setup"></a>
 ### Database Setup:
 
-<img src="Happy_Docs_Pictures/setup.webp" alt="setup GIF" align="left" width="300" height="250" style="margin-right: 20px;">
+<img src="Edamam_Python_Pictures/setup.webp" alt="setup GIF" align="left" width="300" height="250" style="margin-right: 20px;">
 
 - Go to the website [edamam](https://www.edamam.com/)
 - Create an account and select developer option for free 
@@ -68,7 +68,7 @@ My Edamam project recieved 🩷**Best in Class**🩷 an achievement I am very pr
 ---
 <a name="Final_Words"></a>
 ### Final Words:
-<img src="Happy_Docs_Pictures/giphy.webp" alt="giphy GIF" align="right" width="250" height="125" style="margin-left: 10px;">
+<img src="Edamam_Python_Pictures/final_words.webp" alt="giphy GIF" align="right" width="250" height="125" style="margin-left: 10px;">
 
 This was a really interesting project and i really enjoyed learning the fundamentals of python and the use of API's
 
