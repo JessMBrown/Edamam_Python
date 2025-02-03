@@ -79,7 +79,8 @@ Creating a functional app was a great achievement for me and I'm looking forward
 <a name="Created_by"></a>
 ### Created by:
 
-This project was created by Jessica Brown
+This project was created by Jessica Brown, Paula Villablanca, Kye-Lee Low & Nazifah Aslam
+We created a slideshow to showcase our work heres a link for you [Presentation](https://view.genial.ly/6535446679f99d00118e5a60/presentation-idea-2-python)
 I would like to take the time to thank Code First Girls for the Python kickstarter course and my instructor Mia for teaching me the fundamentals of Python so i could achieve what i have in this project.
 
 🩷Please feel free to follow me on linkedin 🩷
