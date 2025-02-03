@@ -1,0 +1,124 @@
+import requests
+import time
+
+
+def recipe_search(ingredient):  #without diet/health choice
+  app_id =
+  app_key =
+  result = requests.get('https://api.edamam.com/search?q={}&app_id={}&app_key={}'.format(ingredient, app_id, app_key))
+  data = result.json()
+  return data['hits']
+
+
+def recipe_search_diet(ingredient, choice):  #with diet/health choice
+  app_id = 
+  app_key =
+  result = requests.get('https://api.edamam.com/search?q={}&health={}&app_id={}&app_key={}'.format(ingredient, choice, app_id, app_key))
+  data = result.json()
+  return data['hits']
+
+
+print('Welcome to the recipe finder! The place where you can discover new preparations with an ingredient of your choice')
+time.sleep(1)
+
+
+def get_recipes():
+  recipe_dict_list = []
+  ingredient = input('\nEnter an ingredient: ')  #ingredient will be inputted into API search line 8 or line 16
+
+  dietary_options = ['1 vegetarian', '2 gluten-free','3 dairy-free', '4 vegan']
+
+  dietary_need = input('\nDo you have a special dietary need? y/n ')
+
+  time.sleep(1)
+
+  if dietary_need.lower() == 'y':
+    diet_input = input('\nChoose from the following options. Enter the option number \n {}: '.format(dietary_options))
+    if diet_input == '1':
+      choice = 'vegetarian'  #choice will be inputted into API search line 16 "health=vegetarian"
+      print(f'You have selected a {choice} diet with the ingredient: {ingredient}.')
+    elif diet_input == '2':
+      choice = 'gluten-free'  #choice will be inputted into API search line 16
+      print(f'You have selected a {choice} diet with the ingredient: {ingredient}.')
+    elif diet_input == '3':
+      choice = 'dairy-free'  #choice will be inputted into API search line 16
+      print(f'You have selected a {choice} diet with the ingredient: {ingredient}.')
+    elif diet_input == '4':
+      choice = 'vegan'  #choice will be inputted into API search line 16
+      print(f'You have selected a {choice} diet with the ingredient: {ingredient}.')
+    time.sleep(2)
+
+    print("\nThinking about the best recipes...")
+    time.sleep(3)
+
+    results = recipe_search_diet(ingredient, diet_input)  #using function 'recipe_search_diet' line 13  which includes diet choice
+
+    for result in results:
+      recipe = result['recipe']
+      recipe_dict = {
+          'label': recipe['label'],
+          'url': recipe['url'],
+          'weight': recipe['totalWeight'],
+          'yield': recipe['yield'],
+          'calories': recipe['calories'],
+          'diet': recipe['dietLabels'],
+          'health': recipe['healthLabels']
+      }
+
+      recipe_dict_list.append(recipe_dict)
+
+  if dietary_need.lower() == 'n':
+    print(f'You have no dietary requirements and you have selected the ingredient: {ingredient}')
+    time.sleep(2)
+
+    print("\nThinking about the best recipes...")
+    time.sleep(3)
+
+    results = recipe_search(ingredient)  #using function 'recipe_search' line 5 without diet choice
+
+    for result in results:
+      recipe = result['recipe']
+      recipe_dict = {
+          'label': recipe['label'],
+          'url': recipe['url'],
+          'weight': recipe['totalWeight'],
+          'yield': recipe['yield'],
+          'calories': recipe['calories'],
+          'diet': recipe['dietLabels'],
+          'health': recipe['healthLabels']
+      }
+
+      recipe_dict_list.append(recipe_dict)
+
+  return recipe_dict_list
+
+
+def run():
+  recipe_dict_list = get_recipes()
+
+  sorted_weight = sorted(recipe_dict_list, key=lambda k: k['weight'])
+
+  print("\nThe results are sorted according to weight (least to most).\n")
+
+  for recipe in sorted_weight:
+
+    name = recipe['label']
+    website = recipe['url']
+    servings = round(recipe['yield'])
+    calories = round(int(recipe['calories']))
+    calories_per_serving = int(calories / servings)
+    weight = round(int(recipe['weight']))
+    weight_per_serving = int(weight / servings)
+    health = recipe['health']
+
+    print(
+        f'The {name} recipe ({website}) will make {servings} servings, having {calories_per_serving} kcals and '
+        f'weigh {weight_per_serving} grams per serving.')
+
+    if recipe['diet']:
+      diet = ', '.join(recipe['diet'])
+      print(f'This recipe is also a good choice for {diet} diet!')
+    print('')
+    print("-" * 100)
+
+run()
